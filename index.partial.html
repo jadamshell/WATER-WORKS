@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,900" rel="stylesheet">
+    <style>
+       .large-header {
+            position: relative;
+            width: 100%;
+            background: #333;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center center;
+            z-index: 1;
+        }
+      
+        #large-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+
+        #large-header {
+            background-image: url('https://i.imgur.com/o4ptg3I.jpeg');
+        }
+
+        .main-title {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            color: #f9f1e9;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate3d(-50%,-50%,0);
+            transform: translate3d(-50%,-50%,0);
+            text-transform: uppercase;
+            font-size: 4.2em;
+            letter-spacing: 0.1em;
+            font-family: 'Montserrat', sans-serif;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+            animation-delay: 1s;
+        }
+
+        .main-title .thin {
+            font-weight: 600;
+        }
+
+        .welcome-text {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate3d(-50%, -100%, 0);
+            color: #f9f1e9;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            opacity: 0;
+            animation: slideDown 1s ease-out forwards;
+        }
+
+        .start-btn {
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 1rem 3rem;
+            font-size: 1.5rem;
+            color: #f9f1e9;
+            background: transparent;
+            border: 2px solid #f9f1e9;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+            animation-delay: 2s;
+        }
+
+        .start-btn:hover {
+            background: #f9f1e9;
+            color: #333;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { 
+                transform: translate3d(-50%, -100%, 0);
+                opacity: 0;
+            }
+            to { 
+                transform: translate3d(-50%, 0, 0);
+                opacity: 1;
+            }
+        }
+      
+      .dot-spinner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  --uib-speed: 0.9s;
+  height: 2.8rem;
+  width: 2.8rem;
+  /*animation: float 3s linear infinite;*/
+}
+
+@keyframes float {
+  0% {
+    transform: rotate(0deg) translate(100px) rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg) translate(100px) rotate(-360deg);
+  }
+}
+
+.dot-spinner__dot::before {
+  content: '';
+  height: 20%;
+  width: 20%;
+  border-radius: 50%;
+  background-color: #fff;
+  filter: drop-shadow(0 0 10px rgb(95, 150, 202));
+  box-shadow: -6px -6px 11px #c1c1c1,
+             6px 6px 11px #ffffff;
+  transform: scale(0);
+  opacity: 0.5;
+  animation: pulse0112 calc(var(--uib-speed) * 1.111) ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(18, 31, 53, 0.3);
+}
+
+.dot-spinner__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+.dot-spinner__dot:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.dot-spinner__dot:nth-child(2)::before {
+  animation-delay: calc(var(--uib-speed) * -0.875);
+}
+
+.dot-spinner__dot:nth-child(3) {
+  transform: rotate(90deg);
+}
+
+.dot-spinner__dot:nth-child(3)::before {
+  animation-delay: calc(var(--uib-speed) * -0.75);
+}
+
+.dot-spinner__dot:nth-child(4) {
+  transform: rotate(135deg);
+}
+
+.dot-spinner__dot:nth-child(4)::before {
+  animation-delay: calc(var(--uib-speed) * -0.625);
+}
+
+.dot-spinner__dot:nth-child(5) {
+  transform: rotate(180deg);
+}
+
+.dot-spinner__dot:nth-child(5)::before {
+  animation-delay: calc(var(--uib-speed) * -0.5);
+}
+
+.dot-spinner__dot:nth-child(6) {
+  transform: rotate(225deg);
+}
+
+.dot-spinner__dot:nth-child(6)::before {
+  animation-delay: calc(var(--uib-speed) * -0.375);
+}
+
+.dot-spinner__dot:nth-child(7) {
+  transform: rotate(270deg);
+}
+
+.dot-spinner__dot:nth-child(7)::before {
+  animation-delay: calc(var(--uib-speed) * -0.25);
+}
+
+.dot-spinner__dot:nth-child(8) {
+  transform: rotate(315deg);
+}
+
+.dot-spinner__dot:nth-child(8)::before {
+  animation-delay: calc(var(--uib-speed) * -0.125);
+}
+
+@keyframes pulse0112 {
+  0%,
+  100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+     .main-title, .welcome-text {
+    transition: opacity 1s ease;
+}
+      .hidden {
+    opacity: 0 !important;
+}
+      
+    </style>
+</head>
+<body>
+    <div id="large-header" class="large-header fade-in">
+    <canvas id="demo-canvas"></canvas>
+    <h2 class="welcome-text">Welcome to</h2>
+    <h1 class="main-title">Water <span class="thin">Works</span></h1>
+    
+      <button class="start-btn" onclick="toggleLoader()">START GAME</button>
+      <div class="dot-spinner" style="display: none; position: absolute; top: 75%; left: 50%; transform: translate(-50%, -50%);">
+     <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+    <div class="dot-spinner__dot"></div>
+</div>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/easing/EasePack.min.js"></script>
+    <script>
+        (function() {
+            var width, height, largeHeader, canvas, ctx, points, target, animateHeader = true;
+
+            initHeader();
+            initAnimation();
+            addListeners();
+
+            function initHeader() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                target = {x: width/2, y: height/2};
+
+                largeHeader = document.getElementById('large-header');
+                largeHeader.style.height = height+'px';
+
+                canvas = document.getElementById('demo-canvas');
+                canvas.width = width;
+                canvas.height = height;
+                ctx = canvas.getContext('2d');
+
+                points = [];
+                for(var x = 0; x < width; x = x + width/20) {
+                    for(var y = 0; y < height; y = y + height/20) {
+                        var px = x + Math.random()*width/20;
+                        var py = y + Math.random()*height/20;
+                        var p = {x: px, originX: px, y: py, originY: py };
+                        points.push(p);
+                    }
+                }
+
+                for(var i = 0; i < points.length; i++) {
+                    var closest = [];
+                    var p1 = points[i];
+                    for(var j = 0; j < points.length; j++) {
+                        var p2 = points[j]
+                        if(!(p1 == p2)) {
+                            var placed = false;
+                            for(var k = 0; k < 5; k++) {
+                                if(!placed) {
+                                    if(closest[k] == undefined) {
+                                        closest[k] = p2;
+                                        placed = true;
+                                    }
+                                }
+                            }
+
+                            for(var k = 0; k < 5; k++) {
+                                if(!placed) {
+                                    if(getDistance(p1, p2) < getDistance(p1, closest[k])) {
+                                        closest[k] = p2;
+                                        placed = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    p1.closest = closest;
+                }
+
+                for(var i in points) {
+                    var c = new Circle(points[i], 2+Math.random()*2, 'rgba(255,255,255,0.3)');
+                    points[i].circle = c;
+                }
+            }
+
+            function addListeners() {
+                if(!('ontouchstart' in window)) {
+                    window.addEventListener('mousemove', mouseMove);
+                }
+                window.addEventListener('scroll', scrollCheck);
+                window.addEventListener('resize', resize);
+            }
+
+            function mouseMove(e) {
+                var posx = posy = 0;
+                if (e.pageX || e.pageY) {
+                    posx = e.pageX;
+                    posy = e.pageY;
+                }
+                else if (e.clientX || e.clientY)    {
+                    posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+                    posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+                }
+                target.x = posx;
+                target.y = posy;
+            }
+
+            function scrollCheck() {
+                if(document.body.scrollTop > height) animateHeader = false;
+                else animateHeader = true;
+            }
+
+            function resize() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                largeHeader.style.height = height+'px';
+                canvas.width = width;
+                canvas.height = height;
+            }
+
+            function initAnimation() {
+                animate();
+                for(var i in points) {
+                    shiftPoint(points[i]);
+                }
+            }
+
+            function animate() {
+                if(animateHeader) {
+                    ctx.clearRect(0,0,width,height);
+                    for(var i in points) {
+                        if(Math.abs(getDistance(target, points[i])) < 4000) {
+                            points[i].active = 0.3;
+                            points[i].circle.active = 0.6;
+                        } else if(Math.abs(getDistance(target, points[i])) < 20000) {
+                            points[i].active = 0.1;
+                            points[i].circle.active = 0.3;
+                        } else if(Math.abs(getDistance(target, points[i])) < 40000) {
+                            points[i].active = 0.02;
+                            points[i].circle.active = 0.1;
+                        } else {
+                            points[i].active = 0;
+                            points[i].circle.active = 0;
+                        }
+
+                        drawLines(points[i]);
+                        points[i].circle.draw();
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+
+            function shiftPoint(p) {
+                TweenLite.to(p, 1+1*Math.random(), {
+                    x:p.originX-50+Math.random()*100,
+                    y: p.originY-50+Math.random()*100,
+                    ease:Circ.easeInOut,
+                    onComplete: function() {
+                        shiftPoint(p);
+                    }
+                });
+            }
+
+            function drawLines(p) {
+                if(!p.active) return;
+                for(var i in p.closest) {
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p.closest[i].x, p.closest[i].y);
+                    ctx.strokeStyle = 'rgba(156,217,249,'+ p.active+')';
+                    ctx.stroke();
+                }
+            }
+
+            function Circle(pos,rad,color) {
+                var _this = this;
+
+                (function() {
+                    _this.pos = pos || null;
+                    _this.radius = rad || null;
+                    _this.color = color || null;
+                })();
+
+                this.draw = function() {
+                    if(!_this.active) return;
+                    ctx.beginPath();
+                    ctx.arc(_this.pos.x, _this.pos.y, _this.radius, 0, 2 * Math.PI, false);
+                    ctx.fillStyle = 'rgba(156,217,249,'+ _this.active+')';
+                    ctx.fill();
+                };
+            }
+
+            function getDistance(p1, p2) {
+                return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
+            }
+        })();
+      
+  function toggleLoader() {
+    document.querySelector('.welcome-text').classList.add('hidden');
+    document.querySelector('.main-title').style.opacity = '0';
+    document.querySelector('.start-btn').style.display = 'none';
+    document.querySelector('.dot-spinner').style.display = 'flex';
+    
+    setTimeout(() => {
+        document.getElementById('large-header').style.transition = 'opacity 1s';
+        document.getElementById('large-header').style.opacity = '0';
+        setTimeout(() => {
+            window.location.href = 'https://jadamshell.github.io/WWG/';
+        }, 1000);
+    }, 2000);
+}
+    </script>
+</body>
+</html>
